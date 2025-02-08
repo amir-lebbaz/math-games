@@ -1,0 +1,254 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+.main, .math-game {
+    margin: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+input {
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid #ccc;
+    font-size: 1em;
+}
+
+a.link {
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+a.link:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+/* إعادة تعيين الأنماط الافتراضية */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* خلفية الصفحة */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    text-align: center;
+}
+
+/* تصميم القسم التقديمي */
+.intro-section {
+    background-color: #4CAF50;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* العنوان الرئيسي */
+.header h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.header p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+/* محتوى الصفحة */
+.content h2 {
+    font-size: 2.5em;
+    margin: 20px 0;
+    color: #ffffff;
+}
+
+.content p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+/* الزر */
+.btn-primary {
+    background-color: #f9a825;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.3em;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #d57c00;
+    transform: scale(1.05);
+}
+
+/* الفوتر */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1em;
+}
+/* إعادة تعيين الأنماط الافتراضية */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* الخلفية العامة */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    text-align: center;
+}
+
+/* تصميم القسم التعليمي */
+.learning-section {
+    background-color: #009688;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* العنوان الرئيسي */
+.header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.header p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* الأزرار الخاصة بالعمليات الحسابية */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-operation {
+    background-color: #ff5722;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.3em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-operation:hover {
+    background-color: #e64a19;
+    transform: scale(1.05);
+}
+
+/* تنسيق سؤال والإجابة */
+.question-container {
+    margin-top: 40px;
+    display: none;
+    text-align: center;
+}
+
+.question-container h3 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 250px;
+}
+
+.btn-submit {
+    background-color: #8bc34a;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.3em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #7cb342;
+    transform: scale(1.05);
+}
+
+/* الرسالة الخاصة بالنتيجة */
+#result-message {
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+/* الفوتر */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1em;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة ضرب الأرقام</title>
+    <link rel="stylesheet" href="qisar.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="title">لعبة ضرب الأرقام</h1>
+        <div id="question"></div>
+        <input type="number" id="answer" placeholder="أدخل إجابتك" />
+        <button id="submitBtn" onclick="checkAnswer()">إجابة</button>
+        <div id="result"></div>
+        <div id="score"></div>
+        <div id="level"></div>
+        <div id="timer"></div>
+        <div id="streak"></div>
+        <div id="stars"></div>
+        <div id="progressBar">
+            <div id="progress"></div>
+        </div>
+    </div>
+
+    <script src="qisar.js"></script>
+    <script>
+        // استرجاع النقاط والنجوم من التخزين المحلي أو تعيينها إلى 0 إذا لم تكن موجودة
+        let points = parseInt(localStorage.getItem('points')) || 0;
+        let stars = parseInt(localStorage.getItem('stars')) || 0;
+
+        // عرض النقاط والنجوم في الصفحة
+        document.getElementById('score').innerText = "النقاط: " + points;
+        document.getElementById('stars').innerText = "النجوم: ⭐️ " + stars;
+    </script>
+
+<div class="content">
+    <h2>هل أنت مستعد  </h2>
+    <p>   انت شخص مميز  !</p>
+
+    <a href="index.html" class="btn-primary"> لعبة التخميم</a>
+    <a href="qisar2.html" class="btn-primary">لعبة الحساب  </a>
+
+</div>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+</body>
+</html>

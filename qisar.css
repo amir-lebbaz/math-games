@@ -1,0 +1,385 @@
+
+/* أساسيات تنسيق الصفحة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    display: flex;
+    flex-direction: column; /* إضافة هذا */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 16px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+
+body {
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+}
+
+.level-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1000;
+    animation: fade-in 0.5s ease-in-out;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* الحاوية الرئيسية */
+.container {
+    background: rgba(162, 161, 161, 0.8);
+    padding: 30px 50px;
+    border-radius: 50px;
+    width: 90%; /* بدل max-width 450px */
+    max-width: 400px; /* تصغيره قليلاً على الهواتف */
+    text-align: center;
+    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.6);
+    animation: fadeIn 1s ease-out;
+}
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em; /* تقليل حجم الخط */
+    }
+}
+
+
+/* العنوان */
+h1 {
+    font-size: 2.8em;
+    color: #ffd700;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px rgba(167, 149, 49, 0.7);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(255, 215, 0, 1);
+    }
+}
+
+/* الأسئلة */
+#question {
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    color: #f2f2f2;
+    animation: float 3s ease-in-out infinite;
+}
+@media (max-width: 480px) {
+    #question {
+        font-size: 1.5em; /* تقليل الحجم */
+    }
+}
+
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* مدخل الإجابة */
+input[type="number"] {
+    padding: 15px;
+    width: 80%;
+    font-size: 1.5em;
+    border-radius: 12px;
+    border: 2px solid #ffb74d;
+    background: #2c2f38;
+    color: #fff;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 480px) {
+    input[type="number"] {
+        width: 100%; /* جعل الإدخال يعرض بشكل كامل */
+        font-size: 1.2em; /* تقليل حجم الخط */
+    }
+}
+
+
+input[type="number"]:focus {
+    outline: none;
+    background-color: #ffb74d;
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+}
+@media (max-width: 480px) {
+    button {
+        font-size: 1.2em;
+        padding: 15px 20px;
+    }
+}
+
+
+/* زر الإجابة */
+button {
+    padding: 25px 25px;
+    font-size: 1.5em;
+    background: #6da26f;
+    border: none;
+    color: rgb(255, 255, 255);
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0px 0px 44px 6px  #ffd90066;
+    transition: transform 3s ease,box-shadow 3s ease-in-out, background-color 3s ease,font-size 3s ease-in-out,padding 3s ease-in-out;
+
+}
+
+button:hover {
+    background: #29a40da6;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 44px 22px  rgba(142, 171, 130, 0.984);
+    transition: font-size 3s ease-in-out,padding 3s,box-shadow 3s ease-in-out, 3s ease, background-color 3s ease;
+    padding:25px 25px;
+    font-size: 1.7em;
+
+}
+
+button:active {
+    transform: scale(0.88);
+}
+
+/* النتيجة */
+#result {
+    font-size: 1.4em;
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: 15px;
+    opacity: 5;
+    transition: opacity 0.5s ease-in-out;
+    animation: slideIn 0.5s ease-out;
+}
+
+.correct {
+    background-color: hsl(122, 39%, 49%);
+    color: white;
+    box-shadow: 0px 0px 44px 22px   hsl(112, 29%, 39%);
+}
+
+.wrong {
+    background-color: hsl(4, 90%, 58%);
+    color: white;
+    box-shadow: 0px 0px 10px 10px  hsl(4, 80%, 40%);
+
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@media (max-width: 480px) {
+    #timer {
+        font-size: 2em;
+        right: 5%;
+        margin-top: 20px;
+        position: relative;
+    }
+}
+@media (max-width: 480px) {
+    button:active {
+        transform: scale(1);
+    }
+}
+
+
+/* نقاط والمستوى */
+#score, #level, #streak, #stars {
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: #ffd700;
+}
+#timer {
+    font-size: 3em;
+    margin-top: 40px;
+    color: #7b1fe4;
+    position: absolute;
+    right:18%;
+}
+
+/* شريط التقدم */
+#progressBar {
+    width: 100%;
+    background-color: #6d6d6d;
+    height: 10px;
+    border-radius: 50px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+#progress {
+    height: 100%;
+    background-color: #ffb74d;
+    border-radius: 50px;
+    transition: width 1s ease;
+}
+body {
+    overflow: auto;
+}
+input[type="number"], button {
+    width: 100%;
+    padding: 20px;
+    font-size: 1.2em;
+}
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+    #question {
+        font-size: 1.5em;
+    }
+    button {
+        font-size: 1.2em;
+        padding: 12px;
+    }
+}
+.container {
+    width: 95%;
+    max-width: 350px;
+}
+input[type="number"] {
+    font-size: 16px;
+}
+
+
+/* النجوم */
+#stars {
+    margin-top: 25px;
+    font-size: 3em;
+    color: #ffb74d;
+    animation: spin 5s linear infinite;
+}
+
+
+@keyframes spin {
+    0% {
+        transform:scale(1
+        );
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+
+
+
+
+.visual-question {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    font-size: 1.5em;
+}
+
+
+
+
+
+
+/* خلفية الصفحة */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    text-align: center;
+}
+
+
+
+
+/* محتوى الصفحة */
+.content h2 {
+    font-size: 2.5em;
+    margin: 20px 0;
+    color: #ffffff;
+    display: inline;
+    padding: 50px;
+}
+
+.content p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color: #29babe;
+}
+
+/* الزر */
+.btn-primary {
+    background-color: #cdc3b2;
+    color: white;
+    display: ruby;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.3em;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+.btn-primary:hover {
+
+    background-color: #f9a825;
+    color: white;
+    padding: 20px 40px;
+    text-decoration: none;
+    font-size: 1.3em;
+    border-radius: 50px;
+    transition: background-color 2s ease, transform 2s ease;
+    transition:padding 10s ease,transform 10s ease;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

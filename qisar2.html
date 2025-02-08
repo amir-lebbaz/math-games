@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Challenge for Kids</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+            padding: 20px;
+        }
+        .game-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            max-width: 400px;
+            width: 100%;
+        }
+        .question {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .options {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .option {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .option:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .correct { color: #4CAF50; }
+        .wrong { color: #F44336; }
+        .score-time {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <audio id="correctSound">
+        <source src="correct.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="wrongSound">
+        <source src="wrong.mp3" type="audio/mpeg">
+    </audio>
+    
+    <h1>Math Challenge</h1>
+    <audio id="bgMusic" loop>
+        <source id="musicSource" src="song1.mp3" type="audio/mpeg">
+    </audio>
+    <button onclick="toggleMusic()">🎵 Toggle Music</button>
+    <button onclick="changeMusic()">🔄 Change Song</button>    
+    <div class="game-container">
+        <div class="score-time">Score: <span id="score">0</span></div>
+        <div class="question" id="question">2 + 3 = ?</div>
+        <div class="options" id="options"></div>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        // عناصر الصوت
+        const bgMusic = document.getElementById("bgMusic");
+        const musicSource = document.getElementById("musicSource");
+        let currentSong = 1;
+
+        // تشغيل/إيقاف الموسيقى
+        function toggleMusic() {
+            if (bgMusic.paused) {
+                bgMusic.play();
+            } else {
+                bgMusic.pause();
+            }
+        }
+
+        // تغيير الأغنية بين song1 و song2
+        function changeMusic() {
+            currentSong = (currentSong === 1) ? 2 : 1;
+            musicSource.src = `song${currentSong}.mp3`;
+            bgMusic.load();
+            bgMusic.play();
+        }
+
+        // تشغيل الصوت بناءً على النوع (صحيح أو خاطئ)
+        function playSound(type) {
+            const sound = document.getElementById(type === "correct" ? "correctSound" : "wrongSound");
+            sound.currentTime = 0;
+            sound.play();
+        }
+
+        let score = 0;
+        const questionElem = document.getElementById("question");
+        const optionsElem = document.getElementById("options");
+        const messageElem = document.getElementById("message");
+        const scoreElem = document.getElementById("score");
+
+        function generateQuestion() {
+            const num1 = Math.floor(Math.random() * 10) + 1;
+            const num2 = Math.floor(Math.random() * 10) + 1;
+            const correctAnswer = num1 + num2;
+            questionElem.textContent = `${num1} + ${num2} = ?`;
+
+            const answers = [correctAnswer, correctAnswer + 1, correctAnswer - 1, correctAnswer + 2].sort(() => Math.random() - 0.5);
+            optionsElem.innerHTML = "";
+
+            answers.forEach(answer => {
+                const btn = document.createElement("button");
+                btn.className = "option";
+                btn.textContent = answer;
+                btn.onclick = () => checkAnswer(answer, correctAnswer);
+                optionsElem.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(selected, correct) {
+            if (selected === correct) {
+                messageElem.textContent = "Correct! 🎉";
+                messageElem.className = "message correct";
+                score += 10;
+                playSound("correct");
+            } else {
+                messageElem.textContent = "Wrong! Try again. ❌";
+                messageElem.className = "message wrong";
+                playSound("wrong");
+            }
+            scoreElem.textContent = score;
+            setTimeout(generateQuestion, 1000);
+        }
+
+        generateQuestion();
+    </script>
+    
+    <a href="index.html" class="btn-primary">لعبة التخميم</a>
+    <a href="qisar.html" class="btn-primary">لعبة الضرب</a>
+</body>
+</html>
